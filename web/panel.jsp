@@ -97,7 +97,7 @@
         } else {
         %>
     <tr>
-        <td colspan="5">No hay usuarios registrados</td>
+        <p>No hay viviendas registradas</p>
     </tr>
     <%
         }

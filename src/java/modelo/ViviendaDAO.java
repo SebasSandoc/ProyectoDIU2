@@ -43,6 +43,37 @@ public class ViviendaDAO {
         return estatus;
     }
     
+    public static int modificar(int clave, Vivienda nuevo) {
+        PreparedStatement psnt;
+        Conexion cx = new Conexion();
+        Connection con = cx.crearConexion();
+
+        try {
+            psnt = con.prepareStatement("UPDATE vivienda SET tipo=?, ciudad=?, direccion=?, contrato=?, tamanio=?, "
+                    + "presupuesto=?, caracteristicas=?, estado=? WHERE usuarioID = ?");            
+            psnt.setString(1, nuevo.getTipo());
+            psnt.setString(2, nuevo.getCiudad());
+            psnt.setString(3, nuevo.getDireccion());
+            psnt.setString(4, nuevo.getContrato());
+            psnt.setFloat(5, nuevo.getTamanio());
+            psnt.setFloat(6, nuevo.getPresupuesto());
+            psnt.setString(7, nuevo.getCaracteristicas());
+            psnt.setInt(8, nuevo.getEstado());
+            psnt.setInt(9, clave);
+            System.out.println(psnt);
+
+            int ru = psnt.executeUpdate();
+            if (ru > 0) {
+                System.out.println("dato actualizado");
+                return ru;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error de modificacion " + ex.getMessage());
+        }
+        return 0;
+    }
+    
     public static ArrayList<Vivienda> buscarVivienda(String query) {
         ArrayList<Vivienda> lista = new ArrayList<>();
         PreparedStatement psnt;
