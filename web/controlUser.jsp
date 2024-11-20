@@ -20,6 +20,7 @@
     String gen = null;
     Date fech = null;
     String mail = null;
+    String cla = null;
     ArrayList<Usuario> user = new ArrayList<>();
 %>
 <!DOCTYPE html>
@@ -28,6 +29,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <style>
             #update {
+                display: none;
+            }
+
+            #updateLogin {
                 display: none;
             }
         </style>
@@ -42,6 +47,7 @@
             gen = user.get(0).getGenero();
             fech = user.get(0).getFecha_nacimiento();
             mail = user.get(0).getCorreo();
+            cla = user.get(0).getClave();
         %>
         <h1>Panel usuario</h1>
         <table>
@@ -71,6 +77,7 @@
             </tr>
         </table>
         <button type="button" onclick="actualizar()">modificar datos</button>
+        <button type="button" onclick="actuaLogin()">Cambiar contraseña</button>
         <div id="update">
             <h1>datos</h1>
             <form id="form1" name="form1" method="post" action="EditarUsuario">
@@ -99,7 +106,24 @@
                         <td><input type="text" id="cmail" name="cmail" value="<%=mail%>"><br></td>
                     </tr>
                 </table>
-                    <input type="submit" value="Actualizar">
+                <input type="submit" value="Actualizar">
+            </form>
+        </div>
+
+        <div id="updateLogin">
+            <h1>datos</h1>
+            <form id="form1" name="form1" method="post" action="EditarClave">
+                <table>
+                    <tr>
+                        <td>Clave vieja:</td>
+                        <td><input type="password" id="cold" name="cold" value=""><br></td>
+                    </tr>
+                    <tr>
+                        <td>Nueva clave:</td>
+                        <td><input type="password" id="cnew" name="cnew" value=""><br></td>
+                    </tr>                   
+                </table>
+                <input type="submit" value="Actualizar">
             </form>
         </div>
     </body>
@@ -108,6 +132,16 @@
         function actualizar() {
             var hiddenDiv = document.getElementById('update');
             if (hiddenDiv.style.display === 'none') {
+                hiddenDiv.style.display = 'block';
+            } else {
+                hiddenDiv.style.display = 'none';
+            }
+        }
+
+        function actuaLogin() {
+            var hiddenDiv = document.getElementById('updateLogin');
+
+            if (hiddenDiv.style.display === 'none' || hiddenDiv.style.display === '') {
                 hiddenDiv.style.display = 'block';
             } else {
                 hiddenDiv.style.display = 'none';

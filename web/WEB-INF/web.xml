@@ -16,6 +16,10 @@
         <servlet-name>EditarUsuario</servlet-name>
         <servlet-class>controlador.EditarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditarClave</servlet-name>
+        <servlet-class>controlador.EditarClave</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegUsuario</servlet-name>
         <url-pattern>/RegUsuario</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>EditarUsuario</servlet-name>
         <url-pattern>/EditarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarClave</servlet-name>
+        <url-pattern>/EditarClave</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

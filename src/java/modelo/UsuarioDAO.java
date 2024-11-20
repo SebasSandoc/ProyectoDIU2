@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class UsuarioDAO {
 
     public static ArrayList<Usuario> buscar(String query) {
-         ArrayList<Usuario> lista = new ArrayList<>();
+        ArrayList<Usuario> lista = new ArrayList<>();
         PreparedStatement psnt;
         ResultSet rs;
         Conexion cx = new Conexion();
@@ -59,6 +59,29 @@ public class UsuarioDAO {
             psnt.setDate(4, nuevo.getFecha_nacimiento());
             psnt.setString(5, nuevo.getGenero());
             psnt.setInt(6, clave);
+            System.out.println(psnt);
+
+            int ru = psnt.executeUpdate();
+            if (ru > 0) {
+                System.out.println("dato actualizado");
+                return ru;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error de modificacion " + ex.getMessage());
+        }
+        return 0;
+    }
+    
+    public static int modificarClave(int clave, String nuevo) {
+        PreparedStatement psnt;
+        Conexion cx = new Conexion();
+        Connection con = cx.crearConexion();
+
+        try {
+            psnt = con.prepareStatement("UPDATE usuario SET clave=? WHERE usuarioID = ?");            
+            psnt.setString(1, nuevo);
+            psnt.setInt(2, clave);
             System.out.println(psnt);
 
             int ru = psnt.executeUpdate();
