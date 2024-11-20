@@ -35,7 +35,7 @@ public class LoginDAO {
                 datos = new Usuario();
                 datos.setUsuario(rs.getString("usuario"));
                 datos.setClave(rs.getString("clave"));
-
+                datos.setUsuarioID(rs.getInt("usuarioID"));
             }
             rs.close();
             stmt.close();

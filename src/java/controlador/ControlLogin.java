@@ -15,6 +15,7 @@ public class ControlLogin extends HttpServlet {
     
     LoginDAO logindao = new LoginDAO();
     Usuario datos = new Usuario();
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,9 +30,11 @@ public class ControlLogin extends HttpServlet {
 
             if (datos.getUsuario() != null) {
                 request.setAttribute("datos", datos);
-
+                System.out.println(datos.toString());
                 HttpSession sesion_cli = request.getSession(true);
                 sesion_cli.setAttribute("UserReg", request.getParameter("user"));
+                sesion_cli.setAttribute("key", datos.getUsuarioID());
+                
 
                 request.getRequestDispatcher("panel.jsp").forward(request, response);
             } else {

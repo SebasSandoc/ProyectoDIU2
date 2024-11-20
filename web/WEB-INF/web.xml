@@ -10,7 +10,11 @@
     </servlet>
     <servlet>
         <servlet-name>CerrarSesion</servlet-name>
-        <servlet-class>modelo.CerrarSesion</servlet-class>
+        <servlet-class>controlador.CerrarSesion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarUsuario</servlet-name>
+        <servlet-class>controlador.EditarUsuario</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegUsuario</servlet-name>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CerrarSesion</servlet-name>
         <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarUsuario</servlet-name>
+        <url-pattern>/EditarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

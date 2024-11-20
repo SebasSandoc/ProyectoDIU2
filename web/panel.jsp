@@ -15,6 +15,8 @@
 <%
     HttpSession sesion_cli = request.getSession(true);
     String UserReg = (String) sesion_cli.getAttribute("UserReg");
+    int key = (Integer) sesion_cli.getAttribute("key");
+    //String key = (String) sesion_cli.getAttribute("key");
     String nom = null;
     String ap = null;
     ArrayList<Usuario> user = new ArrayList<>();
@@ -34,6 +36,7 @@
         %>
         <h1>Panel</h1>
         <p><%=nom%> <%=ap%></p>
+        <p><%=key%></p>
         <form action="controlUser.jsp" method="get">
             <button type="submit">Panel de usuario</button>
         </form>

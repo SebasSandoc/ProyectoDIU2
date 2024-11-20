@@ -13,6 +13,7 @@
 <%
     HttpSession sesion_cli = request.getSession(true);
     String UserReg = (String) sesion_cli.getAttribute("UserReg");
+    int key = (Integer) sesion_cli.getAttribute("key");
     String nom = null;
     String ap = null;
     String usu = null;
@@ -72,7 +73,7 @@
         <button type="button" onclick="actualizar()">modificar datos</button>
         <div id="update">
             <h1>datos</h1>
-            <form>
+            <form id="form1" name="form1" method="post" action="EditarUsuario">
                 <table>
                     <tr>
                         <td>Nombre:</td>
@@ -98,6 +99,7 @@
                         <td><input type="text" id="cmail" name="cmail" value="<%=mail%>"><br></td>
                     </tr>
                 </table>
+                    <input type="submit" value="Actualizar">
             </form>
         </div>
     </body>

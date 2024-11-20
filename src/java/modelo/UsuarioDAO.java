@@ -44,4 +44,32 @@ public class UsuarioDAO {
         }
         return lista;
     }
+    
+    public static int modificar(int clave, Usuario nuevo) {
+        PreparedStatement psnt;
+        Conexion cx = new Conexion();
+        Connection con = cx.crearConexion();
+
+        try {
+            psnt = con.prepareStatement("UPDATE usuario SET nombre=?, correo=?, apellido=?, fecha_nacimiento=?, genero=?"
+                    + " WHERE usuarioID = ?");            
+            psnt.setString(1, nuevo.getNombre());
+            psnt.setString(2, nuevo.getCorreo());
+            psnt.setString(3, nuevo.getApellido());
+            psnt.setDate(4, nuevo.getFecha_nacimiento());
+            psnt.setString(5, nuevo.getGenero());
+            psnt.setInt(6, clave);
+            System.out.println(psnt);
+
+            int ru = psnt.executeUpdate();
+            if (ru > 0) {
+                System.out.println("dato actualizado");
+                return ru;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error de modificacion " + ex.getMessage());
+        }
+        return 0;
+    }
 }
