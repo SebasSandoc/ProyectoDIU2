@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package controlador;
 
 import java.io.IOException;
@@ -13,12 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/EnviarEditar.java")
-public class EnviarEditar extends HttpServlet {
+@WebServlet("/EnviarEliminar.java")
+public class EnviarEliminar extends HttpServlet {
 
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
     }
 
     @Override
@@ -31,15 +29,16 @@ public class EnviarEditar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         System.out.println("entra servlet");
-        String select = request.getParameter("select");        
-        System.out.println(select);
+        String delete = request.getParameter("delete");        
+        System.out.println(delete);
 
-        request.setAttribute("select", select);
-        System.out.println(request.getAttribute("select"));
+        request.setAttribute("delete", delete);
+        System.out.println(request.getAttribute("delete"));
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("editarVivienda.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("eliminarVivienda.jsp");
         dispatcher.forward(request, response);
     }
+
 
     @Override
     public String getServletInfo() {

@@ -80,7 +80,7 @@
                     </td>
                 </tr>
                 <td>
-                    <form action="Eliminar" method="post">
+                    <form action="EnviarEliminar" method="post">
                         <button type="submit">Eliminar</button>
                         <input type="text" id="delete" name="delete" value="<%=vivienda.getViviendaID()%>" hidden>
                     </form>

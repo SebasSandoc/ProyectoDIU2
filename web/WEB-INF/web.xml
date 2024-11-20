@@ -32,6 +32,10 @@
         <servlet-name>EnviarEditar</servlet-name>
         <servlet-class>controlador.EnviarEditar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnviarEliminar</servlet-name>
+        <servlet-class>controlador.EnviarEliminar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlLogin</servlet-name>
         <url-pattern>/ControlLogin</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>EnviarEditar</servlet-name>
         <url-pattern>/EnviarEditar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnviarEliminar</servlet-name>
+        <url-pattern>/EnviarEliminar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
