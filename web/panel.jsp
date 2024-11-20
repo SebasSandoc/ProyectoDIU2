@@ -20,6 +20,14 @@
     String nom = null;
     String ap = null;
     ArrayList<Usuario> user = new ArrayList<>();
+
+    boolean admin = false;
+
+    if (key == 1) {
+        admin = true;
+    }
+
+
 %>
 <!DOCTYPE html>
 <html>
@@ -28,9 +36,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%
-            System.out.println("userreg "+ UserReg);
-            user = UsuarioDAO.buscar(" WHERE usuario = '"+UserReg+"'");
+        <%            System.out.println("userreg " + UserReg);
+            user = UsuarioDAO.buscar(" WHERE usuario = '" + UserReg + "'");
             nom = user.get(0).getNombre();
             ap = user.get(0).getApellido();
         %>
@@ -43,6 +50,11 @@
         <form action="CerrarSesion" method="get">
             <button type="submit">Cerrar Sesion</button>
         </form>
-        
-    </body>
+        <div style="<%= admin ? "" : "display:none;"%>">
+            <form action="admin.jsp" method="get">
+                <button type="submit">Admin</button>
+            </form>   
+        </div>
+    </form>           
+</body>
 </html>
