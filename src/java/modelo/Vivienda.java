@@ -11,8 +11,10 @@ public class Vivienda {
     private float tamanio;
     private float presupuesto;
     private String caracteristicas;
+    private int estado;
+    private String imagen;
 
-    public Vivienda(int viviendaID, String tipo, String ciudad, String direccion, String contrato, float tamanio, float presupuesto, String caracteristicas) {
+    public Vivienda(int viviendaID, String tipo, String ciudad, String direccion, String contrato, float tamanio, float presupuesto, String caracteristicas, int estado, String imagen) {
         this.viviendaID = viviendaID;
         this.tipo = tipo;
         this.ciudad = ciudad;
@@ -21,7 +23,30 @@ public class Vivienda {
         this.tamanio = tamanio;
         this.presupuesto = presupuesto;
         this.caracteristicas = caracteristicas;
+        this.estado = estado;
+        this.imagen = imagen;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+
+    public Vivienda() {
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+
 
     public int getViviendaID() {
         return viviendaID;
