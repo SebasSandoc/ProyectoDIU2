@@ -25,11 +25,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            #update {
+                display: none;
+            }
+        </style>
         <title>JSP Page</title>
     </head>
     <body>
         <%
-            user = UsuarioDAO.buscar(" WHERE usuario = '"+UserReg+"'");
+            user = UsuarioDAO.buscar(" WHERE usuario = '" + UserReg + "'");
             nom = user.get(0).getNombre();
             ap = user.get(0).getApellido();
             usu = user.get(0).getUsuario();
@@ -64,5 +69,47 @@
                 <td><%=mail%></td>
             </tr>
         </table>
+        <button type="button" onclick="actualizar()">modificar datos</button>
+        <div id="update">
+            <h1>datos</h1>
+            <form>
+                <table>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td><input type="text" id="cnom" name="cnom" value="<%=nom%>"><br></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido:</td>
+                        <td><input type="text" id="cap" name="cap" value="<%=ap%>"><br></td>
+                    </tr>
+                    <tr>               
+                        <td>Genero:</td>
+                        <td><input type="radio" id="m" name="cgen" value="M" checked/>
+                            <label for="m">Masculino</label><br>
+                            <input type="radio" id="f" name="cgen" value="F"/>
+                            <label for="f">Femenino</label><br></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de nacimiento:</td>
+                        <td><input type="date" id="cfech" name="cfech" value="<%=fech%>"><br></td>
+                    </tr>
+                    <tr>
+                        <td>Correo:</td>
+                        <td><input type="text" id="cmail" name="cmail" value="<%=mail%>"><br></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </body>
+
+    <script type="text/javascript">
+        function actualizar() {
+            var hiddenDiv = document.getElementById('update');
+            if (hiddenDiv.style.display === 'none') {
+                hiddenDiv.style.display = 'block';
+            } else {
+                hiddenDiv.style.display = 'none';
+            }
+        }
+    </script>
 </html>
