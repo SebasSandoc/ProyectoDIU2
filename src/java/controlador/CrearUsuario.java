@@ -6,16 +6,21 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Usuario;
+import modelo.UsuarioDAO;
 
 /**
  *
  * @author SEBASTIAN
  */
-public class RegUsuario extends HttpServlet {
+public class CrearUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,18 +33,56 @@ public class RegUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet RegUsuario</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet RegUsuario at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String nombre;
+        String apellido;
+        String email;
+        String usuario;
+        String strFecn;
+        String genero;
+        String clave;
+
+        nombre = new String(request.getParameter("cnom").getBytes("ISO-8859-1"), "UTF-8");
+        apellido = new String(request.getParameter("cap").getBytes("ISO-8859-1"), "UTF-8");
+        email = new String(request.getParameter("cmail").getBytes("ISO-8859-1"), "UTF-8");
+        usuario = new String(request.getParameter("cuser").getBytes("ISO-8859-1"), "UTF-8");
+        genero = new String(request.getParameter("cgen").getBytes("ISO-8859-1"), "UTF-8");
+        clave = new String(request.getParameter("cclave").getBytes("ISO-8859-1"), "UTF-8");
+        strFecn = new String(request.getParameter("cfech").getBytes("ISO-8859-1"), "UTF-8");
+        
+        Date fecn = null;
+
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date parsedDate = format.parse(strFecn);
+            fecn = new Date(parsedDate.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace(); 
+        }
+               
+
+        Usuario u = new Usuario();
+
+        u.setNombre(nombre);
+        u.setApellido(apellido);
+        u.setCorreo(email);
+        u.setUsuario(usuario);
+        u.setClave(clave);
+        u.setGenero(genero);
+        u.setFecha_nacimiento(fecn);
+        
+
+        System.out.println("entro");
+
+        int status = UsuarioDAO.agregarUsuario(u);
+
+        System.out.println("entro");
+
+        if (status > 0) {
+            System.out.println("registrado");
+            //response.sendRedirect("mensaje.jsp");
         }
     }
 

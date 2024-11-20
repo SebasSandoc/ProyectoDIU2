@@ -23,6 +23,9 @@
                     <td><input name="accion" value="Ingresar" type="submit" id="button" /></td>
                 </tr>
             </table>
-        </form
+        </form>
+        <form action="registro.jsp" method="get">
+            <button type="submit">Registrar</button>
+        </form>
     </body>
 </html>

@@ -10,6 +10,40 @@ import java.util.logging.Logger;
 
 public class UsuarioDAO {
 
+    public static int agregarUsuario(Usuario u) {
+        Conexion cn = new Conexion();
+        Connection con;
+        PreparedStatement ps;
+        ResultSet rs;
+        int estatus = 0;
+
+        try {
+            con = cn.crearConexion();
+            String q = "INSERT INTO usuario ( nombre, apellido, correo, usuario, clave, fecha_nacimiento, genero,rolID)"
+                    + "values (?,?,?,?,?,?,?,3)";
+
+            ps = con.prepareStatement(q);
+
+            ps.setString(1, u.getNombre());
+            ps.setString(2, u.getApellido());
+            ps.setString(3, u.getCorreo());
+            ps.setString(4, u.getUsuario());
+            ps.setString(5, u.getClave());
+            ps.setDate(6, u.getFecha_nacimiento());
+            ps.setString(7, u.getGenero());
+
+            estatus = ps.executeUpdate();
+            con.close();
+
+            System.out.print("REGISTRO GUARDADO DE FORMA EXITOSA...");
+
+        } catch (SQLException ex) {
+            System.out.print("ERROR AL REGISTRAR LA ACTIVIDAD...");
+            System.out.print(ex.getMessage());
+        }
+        return estatus;
+    }
+    
     public static ArrayList<Usuario> buscar(String query) {
         ArrayList<Usuario> lista = new ArrayList<>();
         PreparedStatement psnt;
