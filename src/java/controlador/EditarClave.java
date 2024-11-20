@@ -6,6 +6,7 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +24,7 @@ public class EditarClave extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         int key = (Integer) session.getAttribute("key");
         response.setContentType("text/html;charset=UTF-8");
@@ -32,8 +34,8 @@ public class EditarClave extends HttpServlet {
 
         cold = new String(request.getParameter("cold").getBytes("ISO-8859-1"), "UTF-8");
         cnew = new String(request.getParameter("cnew").getBytes("ISO-8859-1"), "UTF-8");
-        
-        System.out.println("claveeeee="+key);
+
+        System.out.println("claveeeee=" + key);
 
         user = UsuarioDAO.buscar(" WHERE usuarioID = " + key);
         System.out.println(user);
@@ -47,10 +49,14 @@ public class EditarClave extends HttpServlet {
                 response.sendRedirect("mensaje.jsp");
             }
         } else {
-
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Contrseña incorrecta');");
+            out.println("location='controlUser.jsp';");
+            out.println("</script>");
         }
-    }
-
+    
+}
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 /**
