@@ -13,6 +13,11 @@ public class Usuario {
     private String genero;
     private int rol;
 
+    public Usuario() {
+    }
+    
+    
+
     public Usuario(int usuarioID, String nombre, String apellido, String usuario, String clave, Date fecha_nacimiento, String genero, int rol) {
         this.usuarioID = usuarioID;
         this.nombre = nombre;

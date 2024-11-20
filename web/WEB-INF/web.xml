@@ -4,9 +4,17 @@
         <servlet-name>RegUsuario</servlet-name>
         <servlet-class>controlador.RegUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlLogin</servlet-name>
+        <servlet-class>controlador.ControlLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegUsuario</servlet-name>
         <url-pattern>/RegUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlLogin</servlet-name>
+        <url-pattern>/ControlLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
