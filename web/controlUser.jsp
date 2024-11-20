@@ -1,6 +1,6 @@
 <%-- 
-    Document   : panel
-    Created on : Nov 19, 2024, 6:16:44 PM
+    Document   : controlUser
+    Created on : Nov 19, 2024, 8:44:50 PM
     Author     : SEBASTIAN
 --%>
 
@@ -12,9 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Panel</h1>
-        <form action="controlUser.jsp" method="get">
-            <button type="submit">Panel de usuario</button>
-        </form>
+        <h1>Panel usuario</h1>
     </body>
 </html>
