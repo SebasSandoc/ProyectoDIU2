@@ -81,7 +81,7 @@
                 </tr>
                 <td>
                     <form action="Eliminar" method="post">
-                        <button type="submit">Editar</button>
+                        <button type="submit">Eliminar</button>
                         <input type="text" id="delete" name="delete" value="<%=vivienda.getViviendaID()%>" hidden>
                     </form>
                 </td>
@@ -119,9 +119,9 @@
             </tr>
             <tr>
                 <td>Contrato:</td>
-                <td><input type="radio" id="vent" name="cont" value="vent" checked/>
+                <td><input type="radio" id="vent" name="cont" value="Venta" checked/>
                     <label for="m">Venta</label><br>
-                    <input type="radio" id="arri" name="cont" value="arri"/>
+                    <input type="radio" id="arri" name="cont" value="Arriendo"/>
                     <label for="f">Arriendo</label><br></td>
             </tr>
             <tr>

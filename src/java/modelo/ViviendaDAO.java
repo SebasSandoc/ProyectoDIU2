@@ -50,7 +50,7 @@ public class ViviendaDAO {
 
         try {
             psnt = con.prepareStatement("UPDATE vivienda SET tipo=?, ciudad=?, direccion=?, contrato=?, tamanio=?, "
-                    + "presupuesto=?, caracteristicas=?, estado=? WHERE usuarioID = ?");            
+                    + "presupuesto=?, caracteristicas=?, estado=? WHERE viviendaID = ?");            
             psnt.setString(1, nuevo.getTipo());
             psnt.setString(2, nuevo.getCiudad());
             psnt.setString(3, nuevo.getDireccion());

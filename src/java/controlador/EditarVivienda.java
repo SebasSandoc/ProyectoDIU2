@@ -22,8 +22,6 @@ public class EditarVivienda extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        int key = (Integer) session.getAttribute("key");
-        System.out.println(key);
         response.setContentType("text/html;charset=UTF-8");
         String tipo;
         String ciudad;
@@ -34,6 +32,7 @@ public class EditarVivienda extends HttpServlet {
         String caracteristicas;
         int estado;
         String imagen;
+        int id;
         Vivienda viv = new Vivienda();
 
         tipo = new String(request.getParameter("tipo").getBytes("ISO-8859-1"), "UTF-8");
@@ -42,9 +41,10 @@ public class EditarVivienda extends HttpServlet {
         contrato = new String(request.getParameter("cont").getBytes("ISO-8859-1"), "UTF-8");
         tamanio = Float.valueOf(new String(request.getParameter("tam").getBytes("ISO-8859-1"), "UTF-8")); 
         presupuesto = Float.valueOf(new String(request.getParameter("pres").getBytes("ISO-8859-1"), "UTF-8")); 
-        caracteristicas = new String(request.getParameter("tam").getBytes("ISO-8859-1"), "UTF-8");
-        imagen = new String(request.getParameter("tam").getBytes("ISO-8859-1"), "UTF-8");
-        estado = Integer.parseInt(new String(request.getParameter("tam").getBytes("ISO-8859-1"), "UTF-8"));
+        caracteristicas = new String(request.getParameter("car").getBytes("ISO-8859-1"), "UTF-8");
+        imagen = new String(request.getParameter("img").getBytes("ISO-8859-1"), "UTF-8");
+        estado = Integer.parseInt(new String(request.getParameter("est").getBytes("ISO-8859-1"), "UTF-8"));
+        id = Integer.parseInt(new String(request.getParameter("id").getBytes("ISO-8859-1"), "UTF-8"));
 
         System.out.println("entro");
         viv.setTipo(tipo);
@@ -56,8 +56,8 @@ public class EditarVivienda extends HttpServlet {
         viv.setCaracteristicas(caracteristicas);
         viv.setImagen(imagen);
         viv.setEstado(estado);
-        System.out.println("llave "+key);
-        int status = ViviendaDAO.modificar(key, viv);
+        //System.out.println("llave "+select);
+        int status = ViviendaDAO.modificar(id, viv);
 
         System.out.println("entro");
 
