@@ -31,7 +31,7 @@ public class ControlLogin extends HttpServlet {
                 request.setAttribute("datos", datos);
 
                 HttpSession sesion_cli = request.getSession(true);
-                sesion_cli.setAttribute("nUsuario", request.getParameter("user"));
+                sesion_cli.setAttribute("UserReg", request.getParameter("user"));
 
                 request.getRequestDispatcher("panel.jsp").forward(request, response);
             } else {
