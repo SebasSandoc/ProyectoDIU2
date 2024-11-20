@@ -129,4 +129,27 @@ public class UsuarioDAO {
         }
         return 0;
     }
+    
+    public static int eliminar(int clave) {
+        System.out.println("entra");
+        System.out.println(clave);
+        PreparedStatement psnt;
+        Conexion cx = new Conexion();
+        Connection con = cx.crearConexion();
+        try {
+            psnt = con.prepareStatement("DELETE FROM usuario WHERE usuarioID = ?");
+            psnt.setInt(1, clave);
+            int rd = psnt.executeUpdate();
+            if (rd > 0) {
+                System.out.println("Usuario borrado correctamente");
+                return rd;
+            } else {
+                System.out.println("no borrado");
+                 return rd;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al borrar" + ex.getMessage());
+        }
+        return 0;
+    }
 }

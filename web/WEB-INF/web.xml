@@ -20,6 +20,10 @@
         <servlet-name>CerrarSesion</servlet-name>
         <servlet-class>controlador.CerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarUsuario</servlet-name>
+        <servlet-class>controlador.EliminarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlLogin</servlet-name>
         <url-pattern>/ControlLogin</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>CerrarSesion</servlet-name>
         <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarUsuario</servlet-name>
+        <url-pattern>/EliminarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

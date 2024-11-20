@@ -78,6 +78,9 @@
         </table>
         <button type="button" onclick="actualizar()">modificar datos</button>
         <button type="button" onclick="actuaLogin()">Cambiar contraseña</button>
+        <form action="eliminar.jsp" method="get">
+            <button type="submit">Eliminar usuario</button>
+        </form>
         <div id="update">
             <h1>datos</h1>
             <form id="form1" name="form1" method="post" action="EditarUsuario">
