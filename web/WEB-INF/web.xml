@@ -56,6 +56,14 @@
         <servlet-name>CambiarRol</servlet-name>
         <servlet-class>controlador.CambiarRol</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnviarEliminarAdmin</servlet-name>
+        <servlet-class>controlador.EnviarEliminarAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminarVivAdmin</servlet-name>
+        <servlet-class>controlador.EliminarVivAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlLogin</servlet-name>
         <url-pattern>/ControlLogin</url-pattern>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>CambiarRol</servlet-name>
         <url-pattern>/CambiarRol</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnviarEliminarAdmin</servlet-name>
+        <url-pattern>/EnviarEliminarAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarVivAdmin</servlet-name>
+        <url-pattern>/EliminarVivAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
