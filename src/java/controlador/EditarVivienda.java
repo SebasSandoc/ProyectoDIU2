@@ -1,4 +1,3 @@
-
 package controlador;
 
 import java.io.IOException;
@@ -15,12 +14,11 @@ import modelo.UsuarioDAO;
 import modelo.Vivienda;
 import modelo.ViviendaDAO;
 
-
 public class EditarVivienda extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession();
         response.setContentType("text/html;charset=UTF-8");
         String tipo;
@@ -39,33 +37,45 @@ public class EditarVivienda extends HttpServlet {
         ciudad = new String(request.getParameter("cid").getBytes("ISO-8859-1"), "UTF-8");
         direccion = new String(request.getParameter("dir").getBytes("ISO-8859-1"), "UTF-8");
         contrato = new String(request.getParameter("cont").getBytes("ISO-8859-1"), "UTF-8");
-        tamanio = Float.valueOf(new String(request.getParameter("tam").getBytes("ISO-8859-1"), "UTF-8")); 
-        presupuesto = Float.valueOf(new String(request.getParameter("pres").getBytes("ISO-8859-1"), "UTF-8")); 
+        tamanio = Float.valueOf(new String(request.getParameter("tam").getBytes("ISO-8859-1"), "UTF-8"));
+        presupuesto = Float.valueOf(new String(request.getParameter("pres").getBytes("ISO-8859-1"), "UTF-8"));
         caracteristicas = new String(request.getParameter("car").getBytes("ISO-8859-1"), "UTF-8");
         imagen = new String(request.getParameter("img").getBytes("ISO-8859-1"), "UTF-8");
         estado = Integer.parseInt(new String(request.getParameter("est").getBytes("ISO-8859-1"), "UTF-8"));
         id = Integer.parseInt(new String(request.getParameter("id").getBytes("ISO-8859-1"), "UTF-8"));
 
-        System.out.println("entro");
-        viv.setTipo(tipo);
-        viv.setCiudad(ciudad);
-        viv.setContrato(contrato);
-        viv.setDireccion(direccion);
-        viv.setTamanio(tamanio);
-        viv.setPresupuesto(presupuesto);
-        viv.setCaracteristicas(caracteristicas);
-        viv.setImagen(imagen);
-        viv.setEstado(estado);
-        //System.out.println("llave "+select);
-        int status = ViviendaDAO.modificar(id, viv);
+        if (ciudad.isEmpty() || direccion.isEmpty() || tamanio == 0 || presupuesto == 0 || caracteristicas.isEmpty()) {
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('No se permiten campos vacios.');");
+            out.println("location='propietario.jsp';");
+            out.println("</script>");
+            //response.sendRedirect("index.jsp"); 
+        } else {
+            System.out.println("entro");
+            viv.setTipo(tipo);
+            viv.setCiudad(ciudad);
+            viv.setContrato(contrato);
+            viv.setDireccion(direccion);
+            viv.setTamanio(tamanio);
+            viv.setPresupuesto(presupuesto);
+            viv.setCaracteristicas(caracteristicas);
+            viv.setImagen(imagen);
+            viv.setEstado(estado);
+            //System.out.println("llave "+select);
+            int status = ViviendaDAO.modificar(id, viv);
 
-        System.out.println("entro");
+            System.out.println("entro");
 
-        if (status > 0) {
-            System.out.println("modificado");
-            response.sendRedirect("mensaje.jsp");
+            if (status > 0) {
+                PrintWriter out = response.getWriter();
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Propiedad actualizada');");
+                out.println("location='propietario.jsp';");
+                out.println("</script>");
+            }
         }
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

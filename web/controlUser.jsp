@@ -76,6 +76,9 @@
                 <td><%=mail%></td>
             </tr>
         </table>
+        <form action="panel.jsp" method="get">
+            <button type="submit">Regresar</button>
+        </form>
         <button type="button" onclick="actualizar()">modificar datos</button>
         <button type="button" onclick="actuaLogin()">Cambiar contraseña</button>
         <form action="eliminar.jsp" method="get">
@@ -134,7 +137,7 @@
     <script type="text/javascript">
         function actualizar() {
             var hiddenDiv = document.getElementById('update');
-            if (hiddenDiv.style.display === 'none') {
+            if (hiddenDiv.style.display === 'none'|| hiddenDiv.style.display === '') {
                 hiddenDiv.style.display = 'block';
             } else {
                 hiddenDiv.style.display = 'none';

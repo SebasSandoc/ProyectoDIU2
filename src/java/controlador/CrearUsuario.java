@@ -33,7 +33,6 @@ public class CrearUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
 
         response.setContentType("text/html;charset=UTF-8");
         String nombre;
@@ -51,39 +50,49 @@ public class CrearUsuario extends HttpServlet {
         genero = new String(request.getParameter("cgen").getBytes("ISO-8859-1"), "UTF-8");
         clave = new String(request.getParameter("cclave").getBytes("ISO-8859-1"), "UTF-8");
         strFecn = new String(request.getParameter("cfech").getBytes("ISO-8859-1"), "UTF-8");
-        
-        Date fecn = null;
 
-        try {
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date parsedDate = format.parse(strFecn);
-            fecn = new Date(parsedDate.getTime());
-        } catch (ParseException e) {
-            e.printStackTrace(); 
+        if (nombre.isEmpty() || apellido.isEmpty() || email.isEmpty() || usuario.isEmpty() || genero.isEmpty() || clave.isEmpty() || strFecn == null) {
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Llenar todos los datos');");
+            out.println("location='registro.jsp';");
+            out.println("</script>");
+        } else {
+            Date fecn = null;
+
+            try {
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                java.util.Date parsedDate = format.parse(strFecn);
+                fecn = new Date(parsedDate.getTime());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            Usuario u = new Usuario();
+
+            u.setNombre(nombre);
+            u.setApellido(apellido);
+            u.setCorreo(email);
+            u.setUsuario(usuario);
+            u.setClave(clave);
+            u.setGenero(genero);
+            u.setFecha_nacimiento(fecn);
+
+            System.out.println("entro");
+
+            int status = UsuarioDAO.agregarUsuario(u);
+
+            System.out.println("entro");
+
+            if (status > 0) {
+                PrintWriter out = response.getWriter();
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Usuario Registrado');");
+                out.println("location='index.jsp';");
+                out.println("</script>");
+            }
         }
-               
 
-        Usuario u = new Usuario();
-
-        u.setNombre(nombre);
-        u.setApellido(apellido);
-        u.setCorreo(email);
-        u.setUsuario(usuario);
-        u.setClave(clave);
-        u.setGenero(genero);
-        u.setFecha_nacimiento(fecn);
-        
-
-        System.out.println("entro");
-
-        int status = UsuarioDAO.agregarUsuario(u);
-
-        System.out.println("entro");
-
-        if (status > 0) {
-            System.out.println("registrado");
-            //response.sendRedirect("mensaje.jsp");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

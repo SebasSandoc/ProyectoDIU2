@@ -30,12 +30,13 @@ public class LoginDAO {
             stmt.setString(2, clave);
 
             rs = stmt.executeQuery();
-
+            //System.out.println("rs:"+rs.getInt("rol"));
             if (rs.next()) {
                 datos = new Usuario();
                 datos.setUsuario(rs.getString("usuario"));
                 datos.setClave(rs.getString("clave"));
                 datos.setUsuarioID(rs.getInt("usuarioID"));
+                datos.setRol(rs.getInt("rol"));
             }
             rs.close();
             stmt.close();

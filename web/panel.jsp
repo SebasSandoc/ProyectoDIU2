@@ -18,6 +18,10 @@
     HttpSession sesion_cli = request.getSession(true);
     String UserReg = (String) sesion_cli.getAttribute("UserReg");
     int key = (Integer) sesion_cli.getAttribute("key");
+    ArrayList<Usuario> role1 = new ArrayList<>();
+    role1 = UsuarioDAO.buscar(" WHERE usuarioID ="+key);
+    int role = role1.get(0).getRol();
+    System.out.println(role);
     ArrayList<Vivienda> viv = new ArrayList<>();
     String nom = null;
     String ap = null;
@@ -26,9 +30,9 @@
     boolean admin = false;
     boolean prop = false;
 
-    if (key == 1) {
+    if (role == 1) {
         admin = true;
-    } else if (key == 2) {
+    } else if (role == 2) {
         prop = true;
     }
 

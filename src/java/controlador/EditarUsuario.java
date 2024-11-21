@@ -42,23 +42,34 @@ public class EditarUsuario extends HttpServlet {
             java.util.Date parsedDate = format.parse(strFecn);
             fecn = new Date(parsedDate.getTime());
         } catch (ParseException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
 
-        System.out.println("entro");
-        user.setApellido(apellido);
-        user.setNombre(nombre);
-        user.setCorreo(correo);
-        user.setFecha_nacimiento(fecn);
-        user.setGenero(genero);
-        System.out.println("llave "+key);
-        int status = UsuarioDAO.modificar(key, user);
+        if (nombre.isEmpty() || correo.isEmpty() || apellido.isEmpty()) {
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('No se permiten campos vacios');");
+            out.println("location='controlUser.jsp';");
+            out.println("</script>");
+        } else {
+            System.out.println("entro");
+            user.setApellido(apellido);
+            user.setNombre(nombre);
+            user.setCorreo(correo);
+            user.setFecha_nacimiento(fecn);
+            user.setGenero(genero);
+            System.out.println("llave " + key);
+            int status = UsuarioDAO.modificar(key, user);
 
-        System.out.println("entro");
+            System.out.println("entro");
 
-        if (status > 0) {
-            System.out.println("registrado");
-            response.sendRedirect("mensaje.jsp");
+            if (status > 0) {
+                PrintWriter out = response.getWriter();
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Usuario Editado');");
+                out.println("location='controlUser.jsp';");
+                out.println("</script>");
+            }
         }
     }
 

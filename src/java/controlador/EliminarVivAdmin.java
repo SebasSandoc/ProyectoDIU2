@@ -1,4 +1,3 @@
-
 package controlador;
 
 import java.io.IOException;
@@ -17,8 +16,8 @@ public class EliminarVivAdmin extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
- 
-        response.setContentType("text/html;charset=UTF-8");        
+
+        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
 
         //num_docu = new String(request.getParameter("cnumdocu").getBytes("ISO-8859-1"), "UTF-8");
@@ -27,15 +26,17 @@ public class EliminarVivAdmin extends HttpServlet {
 
         id = Integer.parseInt(new String(request.getParameter("id").getBytes("ISO-8859-1"), "UTF-8"));
 
-        
         int uvStatus = Usuario_ViviendaDAO.eliminarAdmin(id);
         int vStatus = ViviendaDAO.eliminar(id);
-        
+
         System.out.println("entro");
 
         if (uvStatus > 0 && vStatus > 0) {
-            //System.out.println("registrado");
-            response.sendRedirect("index.jsp");
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Vivienda eliminada del sistema');");
+            out.println("location='admin.jsp';");
+            out.println("</script>");
         }
     }
 

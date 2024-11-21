@@ -41,8 +41,11 @@ public class EliminarVivienda extends HttpServlet {
         System.out.println("entro");
 
         if (uvStatus > 0 && vStatus > 0) {
-            //System.out.println("registrado");
-            response.sendRedirect("index.jsp");
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Viviendad eliminada del sistema');");
+            out.println("location='propietario.jsp';");
+            out.println("</script>");
         }
     }
 

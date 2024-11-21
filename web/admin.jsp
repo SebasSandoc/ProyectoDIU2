@@ -21,6 +21,7 @@
     </head>
     <body>   
         <h1>Admin</h1>
+        <button onclick="window.location.href='panel.jsp';">Regresar</button>
         <p>
             nombre: <%=nom%><br>
             Apellido: <%=ap%>
@@ -31,6 +32,6 @@
         <form action="tablaVivienda.jsp" method="post" target="frame">
             <button type="submit">Inmovibiliarias</button>
         </form>
-        <iframe name="frame" src="initialContent.jsp" width="600" height="400"></iframe>
+        <iframe name="frame" src="about:blank" width="600" height="400"></iframe>
     </body>
 </html>

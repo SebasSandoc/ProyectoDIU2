@@ -1,4 +1,3 @@
-
 package controlador;
 
 import java.io.IOException;
@@ -12,10 +11,9 @@ import modelo.UsuarioDAO;
 
 public class EliminarUsuario extends HttpServlet {
 
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         int key = (Integer) session.getAttribute("key");
@@ -24,12 +22,17 @@ public class EliminarUsuario extends HttpServlet {
         System.out.println("entro");
 
         int status = UsuarioDAO.eliminar(key);
-        
+
         System.out.println("entro");
 
         if (status > 0) {
             //System.out.println("registrado");
-            response.sendRedirect("index.jsp");
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Usuario eliminado del sistema');");
+            out.println("location='index.jsp';");
+            out.println("</script>");
+            response.sendRedirect("index.jsp");           
         }
     }
 

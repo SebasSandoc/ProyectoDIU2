@@ -51,8 +51,11 @@ public class CambiarRol extends HttpServlet {
             System.out.println("entro");
 
             if (status > 0) {
-                System.out.println("registrado");
-                response.sendRedirect("mensaje.jsp");
+                PrintWriter out = response.getWriter();
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Rol actualizado');");
+                    out.println("location='admin.jsp';");
+                    out.println("</script>");
             }
         }
     }

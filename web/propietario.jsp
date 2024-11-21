@@ -52,6 +52,7 @@
     <body>
 
         <h1>Propiedades registradas</h1>
+        <button onclick="window.location.href='panel.jsp';">Regresar</button>
         <form action="RegistrarVivienda.jsp" method="post">
             <button type="submit">Registrar nueva vivienda</button>
         </form>

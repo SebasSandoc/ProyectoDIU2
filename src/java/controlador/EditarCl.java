@@ -35,11 +35,14 @@ public class EditarCl extends HttpServlet {
             System.out.println("entro");
 
             if (status > 0) {
-                System.out.println("registrado");
-                response.sendRedirect("mensaje.jsp");
+                PrintWriter out = response.getWriter();
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Contraseña actualizada');");
+                out.println("location='controlUser.jsp';");
+                out.println("</script>");
             }
-        }else{
-            
+        } else {
+
         }
 
     }

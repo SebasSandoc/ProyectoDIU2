@@ -7,6 +7,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <button onclick="window.location.href='panel.jsp';">Regresar</button>
         <h1>Busqueda</h1>
         <form action="Busqueda" method="post" target="frame">
             <input type="text" id="ent" name="ent">
@@ -21,6 +22,6 @@
             </select>
             <button type="submit">Buscar</button>
         </form>
-        <iframe name="frame" src="initialContent.jsp" width="600" height="400"></iframe>
+        <iframe name="frame" src="about:blank" width="600" height="400"></iframe>
     </body>
 </html>
