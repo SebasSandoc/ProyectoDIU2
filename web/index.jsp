@@ -100,8 +100,7 @@
                     <input type="text" name="user" id="user" /><br>
                     <label for="clave">contraseña:</label><br>
                     <input type="password" name="clave" id="clave" /><br>
-                    <input type="submit" value="Iniciar sesion">
-
+                    <input name="accion" value="Iniciar Sesion" type="submit" id="button">
                 </form>
                 <br>
                 <form action="registro.jsp" method="get">

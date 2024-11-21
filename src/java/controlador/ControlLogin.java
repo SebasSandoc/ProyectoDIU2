@@ -20,7 +20,7 @@ public class ControlLogin extends HttpServlet {
         HttpSession ses = request.getSession(true);
         String accion = request.getParameter("accion");
 
-        if (accion.equalsIgnoreCase("Ingresar")) {
+        if (accion.equalsIgnoreCase("Iniciar Sesion")) {
             String usu = request.getParameter("user");
             String cla = request.getParameter("clave");
 
