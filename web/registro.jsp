@@ -97,7 +97,7 @@
     </head>
     <body>
         <header>
-            Inmoviliria
+            Inmobiliria
         </header>
         <main>
             <div class="form-container">
