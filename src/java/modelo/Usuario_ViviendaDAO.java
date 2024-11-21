@@ -9,6 +9,35 @@ import java.util.ArrayList;
 
 public class Usuario_ViviendaDAO {
     
+    public static int registrarUserViv(int user, int viv){
+        Conexion cn = new Conexion();
+        Connection con;
+        PreparedStatement ps;
+        ResultSet rs;
+        int estatus = 0;
+
+        try {
+            con = cn.crearConexion();
+            String q = "INSERT INTO usuario_vivienda (viviendaID,UsuarioID)"
+                    + "values (?,?)";
+
+            ps = con.prepareStatement(q);
+
+            ps.setInt(1, viv);
+            ps.setInt(2, user);
+
+            estatus = ps.executeUpdate();
+            con.close();
+
+            System.out.print("REGISTRO GUARDADO DE FORMA EXITOSA...");
+
+        } catch (SQLException ex) {
+            System.out.print("ERROR AL REGISTRAR LA ACTIVIDAD...");
+            System.out.print(ex.getMessage());
+        }
+        return estatus;
+    }
+    
     public static ArrayList<Usuario_vivienda> buscarUserViv(String query) {
         ArrayList<Usuario_vivienda> lista = new ArrayList<>();
         PreparedStatement psnt;

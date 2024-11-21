@@ -52,7 +52,9 @@
     <body>
 
         <h1>Propiedades registradas</h1>
-
+        <form action="RegistrarVivienda.jsp" method="post">
+            <button type="submit">Registrar nueva vivienda</button>
+        </form>
 
         <%
             if (viv != null) {

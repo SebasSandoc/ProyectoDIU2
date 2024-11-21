@@ -1,28 +1,30 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.UsuarioDAO;
+import modelo.Usuario_ViviendaDAO;
 import modelo.Vivienda;
 import modelo.ViviendaDAO;
 
-
-public class EditarVivienda extends HttpServlet {
+/**
+ *
+ * @author SEBASTIAN
+ */
+public class RegistrarVivienda extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         HttpSession session = request.getSession();
-        response.setContentType("text/html;charset=UTF-8");
+        int key = (Integer) session.getAttribute("key");
         String tipo;
         String ciudad;
         String direccion;
@@ -32,7 +34,6 @@ public class EditarVivienda extends HttpServlet {
         String caracteristicas;
         int estado;
         String imagen;
-        int id;
         Vivienda viv = new Vivienda();
 
         tipo = new String(request.getParameter("tipo").getBytes("ISO-8859-1"), "UTF-8");
@@ -43,10 +44,7 @@ public class EditarVivienda extends HttpServlet {
         presupuesto = Float.valueOf(new String(request.getParameter("pres").getBytes("ISO-8859-1"), "UTF-8")); 
         caracteristicas = new String(request.getParameter("car").getBytes("ISO-8859-1"), "UTF-8");
         imagen = new String(request.getParameter("img").getBytes("ISO-8859-1"), "UTF-8");
-        estado = Integer.parseInt(new String(request.getParameter("est").getBytes("ISO-8859-1"), "UTF-8"));
-        id = Integer.parseInt(new String(request.getParameter("id").getBytes("ISO-8859-1"), "UTF-8"));
-
-        System.out.println("entro");
+        
         viv.setTipo(tipo);
         viv.setCiudad(ciudad);
         viv.setContrato(contrato);
@@ -55,17 +53,15 @@ public class EditarVivienda extends HttpServlet {
         viv.setPresupuesto(presupuesto);
         viv.setCaracteristicas(caracteristicas);
         viv.setImagen(imagen);
-        viv.setEstado(estado);
-        //System.out.println("llave "+select);
-        int status = ViviendaDAO.modificar(id, viv);
+        int vivid = ViviendaDAO.RegistrarVivienda(viv);
+        int status = Usuario_ViviendaDAO.registrarUserViv(key, vivid);
 
         System.out.println("entro");
 
         if (status > 0) {
-            System.out.println("modificado");
+            System.out.println("registrado");
             response.sendRedirect("mensaje.jsp");
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
