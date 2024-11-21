@@ -36,6 +36,14 @@
         <servlet-name>EnviarEliminar</servlet-name>
         <servlet-class>controlador.EnviarEliminar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarVivienda</servlet-name>
+        <servlet-class>controlador.EliminarVivienda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Eliminar</servlet-name>
+        <servlet-class>controlador.Eliminar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlLogin</servlet-name>
         <url-pattern>/ControlLogin</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>EnviarEliminar</servlet-name>
         <url-pattern>/EnviarEliminar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarVivienda</servlet-name>
+        <url-pattern>/EliminarVivienda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Eliminar</servlet-name>
+        <url-pattern>/Eliminar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

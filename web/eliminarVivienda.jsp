@@ -25,5 +25,9 @@
     <body>
         <%System.out.println(request.getParameter("delete"));%>
         <h1>Hello World!</h1>
+        <form action="EliminarVivienda" method="post">
+            <button name="borrar" id="borrar" type="summit">Borrar</button>
+            <input type="text" name="id" id="id" value="<%=id%>" hidden>
+        </form>
     </body>
 </html>
