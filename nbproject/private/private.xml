@@ -3,24 +3,46 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/index.jsp</file>
-            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/controlUser.jsp</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/propietario.jsp</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EliminarUsuario.java</file>
-            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/Vivienda.java</file>
-            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/ViviendaDAO.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/CrearUsuario.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/resultado.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/RegistrarVivienda.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/Busqueda.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EnviarEliminarAdmin.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/Eliminar.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/Usuario.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/RolesDAO.java</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EnviarEliminar.java</file>
-            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EnviarEditar.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/busqueda.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/admin.jsp</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/panel.jsp</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/editarVivienda.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EliminarVivienda.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/RegistrarVivienda.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/tablaVivienda.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EditarVivienda.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/eliminarVivienda.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/controlUser.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/ControlLogin.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/tablaUsuario.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EditarCl.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/CambiarRol.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EliminarVivAdmin.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/ViviendaDAO.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EnviarEditar.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/eliminarVivAdmin.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/LoginDAO.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/EstadoDAO.java</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EditarUsuario.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/Estado.java</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/registro.jsp</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/Roles.java</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/Usuario_ViviendaDAO.java</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/UsuarioDAO.java</file>
-            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EditarVivienda.java</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/eliminar.jsp</file>
-            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/web/eliminarVivienda.jsp</file>
             <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/modelo/Usuario_vivienda.java</file>
+            <file>file:/C:/Users/SEBASTIAN/Documents/NetBeansProjects/ProyectoDIU2/src/java/controlador/EditarClave.java</file>
         </group>
     </open-files>
 </project-private>
