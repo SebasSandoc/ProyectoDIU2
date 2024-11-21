@@ -64,6 +64,9 @@
         <form action="controlUser.jsp" method="get">
             <button type="submit">Panel de usuario</button>
         </form>
+        <form action="busqueda.jsp" method="get">
+            <button type="submit">Buscar</button>
+        </form>
         <form action="CerrarSesion" method="get">
             <button type="submit">Cerrar Sesion</button>
         </form>

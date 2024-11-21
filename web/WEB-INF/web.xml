@@ -48,6 +48,10 @@
         <servlet-name>RegistrarVivienda</servlet-name>
         <servlet-class>controlador.RegistrarVivienda</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Busqueda</servlet-name>
+        <servlet-class>controlador.Busqueda</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlLogin</servlet-name>
         <url-pattern>/ControlLogin</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>RegistrarVivienda</servlet-name>
         <url-pattern>/RegistrarVivienda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Busqueda</servlet-name>
+        <url-pattern>/Busqueda</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
