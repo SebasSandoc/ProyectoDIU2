@@ -65,6 +65,11 @@
         <h1>Panel</h1>
         <p><%=nom%> <%=ap%></p>
         <p><%=key%></p>
+        <form action="BusquedaViv" method="get" target="frame">
+            <button name="accion" value="Todos" type="submit" id="button">Todos</button>
+            <button name="accion" value="En venta" type="submit" id="button1">En venta</button>
+            <button name="accion" value="Arriendo" type="submit" id="button2">Arriendo</button>
+        </form>
         <form action="controlUser.jsp" method="get">
             <button type="submit">Panel de usuario</button>
         </form>
@@ -84,6 +89,9 @@
                 <button type="submit">Gestionar viviendas</button>
             </form>   
         </div>
+            <iframe name="frame" src="todo.jsp" width="600" height="400">
+                
+            </iframe>
 
         <%
             if (viv != null) {
