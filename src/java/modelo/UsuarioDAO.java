@@ -107,6 +107,30 @@ public class UsuarioDAO {
         return 0;
     }
     
+    public static int modificarRol(int clave, Usuario nuevo) {
+        PreparedStatement psnt;
+        Conexion cx = new Conexion();
+        Connection con = cx.crearConexion();
+
+        try {
+            psnt = con.prepareStatement("UPDATE usuario SET rolID=?"
+                    + " WHERE usuarioID = ?");            
+            psnt.setInt(1, nuevo.getRol());
+            psnt.setInt(2, clave);
+            System.out.println(psnt);
+
+            int ru = psnt.executeUpdate();
+            if (ru > 0) {
+                System.out.println("dato actualizado");
+                return ru;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Error de modificacion " + ex.getMessage());
+        }
+        return 0;
+    }
+    
     public static int modificarClave(int clave, String nuevo) {
         PreparedStatement psnt;
         Conexion cx = new Conexion();

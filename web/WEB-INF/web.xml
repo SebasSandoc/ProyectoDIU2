@@ -52,6 +52,10 @@
         <servlet-name>Busqueda</servlet-name>
         <servlet-class>controlador.Busqueda</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CambiarRol</servlet-name>
+        <servlet-class>controlador.CambiarRol</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlLogin</servlet-name>
         <url-pattern>/ControlLogin</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>Busqueda</servlet-name>
         <url-pattern>/Busqueda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CambiarRol</servlet-name>
+        <url-pattern>/CambiarRol</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
